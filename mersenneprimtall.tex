@@ -1,0 +1,58 @@
+\documentclass[a4paper,twoside]{article}
+\usepackage{graphicx, fullpage, float, subfig, verbatim, chemfig,amsmath,amssymb,amsfonts,array,hyperref,refcount, commath,amsthm}
+\theoremstyle{plain}
+\newtheorem{thm}{Teorem}[section]
+\newtheorem{col}[thm]{Korrolar}
+\newtheorem{defi}[thm]{Definisjon}
+\newtheorem{setn}[thm]{Setning}
+\newtheorem{hypo}[thm]{Hypotese}
+\newtheorem{lemma}[thm]{Lemma}
+\usepackage[utf8]{inputenc} %For "spesielle" tegn som æ, ø, å og andre er det anbefalt å angi dette. Mac brukere kan vurdere applemac og ikke utf8
+\usepackage[norsk]{babel} %Inkluder kun dersom du vil skrive rapporten på norsk. Dette gir riktig datoformat og sørger for andre lokaliseringsting.
+\newcommand{\setZ}{\mathbb{Z}}
+\newcommand{\setNp}{\mathbb{N}^+}
+\newcommand{\setNn}{\mathbb{N}_0}
+\newcommand{\setR}{\mathbb{R}}
+\newcommand{\setC}{\mathbb{C}}
+\newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
+\newcommand{\ceil}[1]{\left \lceil #1  \right \rceil}
+\newcommand{\nequiv}{\not\equiv}
+\newcommand{\sgnp}[1]{\text{sgn}^{+}(#1)}
+\newcommand{\sgn}[1]{\text{sgn}(#1)}
+\newcommand{\eqtag}{\refstepcounter{equation}\tag{\theequation}}
+\newcounter{reset}
+\newcommand{\texteqtag}[1]{\refstepcounter{equation}(\theequation)\setcounter{reset}{\value{section}}\setcounter{section}{\value{equation}}\label{#1}\setcounter{section}{\value{reset}}\relax}
+\newcommand{\eq}{$$\Updownarrow$$}
+\title{Mersennetall og deres primtallsfaktorer}
+\author{Jakob Peder Pettersen}
+%\author{Kai M\"{u}ller Beckwith \and Vegar Ottesen}
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+Dette beviset tar for seg Mersennetallene og deres primtallsfaktorer. Spesielt handler dette teoremet om hvilke Mersennetall som er primtall.
+\end{abstract}
+\tableofcontents \newpage
+\section{Definisjoner brukt i beviset}
+\subsection{Mersennetallene}
+\subsubsection{Grunnleggende definisjon}
+For $n\geq 1$, er det $n$-te Mersennetallet ($M_n$) definert ved:
+\[
+M_n=2^{n}-1
+\]
+Tallet $n$ kalles heretter indekser til Mersennetallet.
+\subsubsection{Mersenneprimtall}
+Dersom $M_n$ er et primtall, kalles da $M_n$ et Mersenneprimtall. $n$ blir da kalt en primtallgenerende indeks.
+\subsection{Største felles divisor}
+Største felles divisor mellom to heltall $a$ og $b$, notert som $\gcd\left(a,b\right)$ er definert som det største naturlige tallet som deler både $a$ og $b$.
+\subsection{Eulers $\phi$-funksjon}
+La $n$ være et naturlig tall. Da er $\phi(n)$ definert som antall naturlige tall $k$ slik $\gcd(n,k)=1$
+\section{Teori brukt i beviset}
+\subsection{Eulers teorem}
+Dersom $\gcd(a,n)$, så gjelder:
+\begin{align}
+	a^{\phi(n)} \equiv 1 \mod n
+\end{align}
+
+
+\end{document}
