@@ -47,16 +47,78 @@ Dersom $M_n$ er et primtall, kalles da $M_n$ et Mersenneprimtall. $n$ blir da ka
 Største felles divisor mellom to heltall $a$ og $b$, notert som $\gcd\left(a,b\right)$ er definert som det største naturlige tallet som deler både $a$ og $b$.
 \subsection{Eulers $\phi$-funksjon}
 La $n$ være et naturlig tall. Da er $\phi(n)$ definert som antall naturlige tall $k$ slik $\gcd(n,k)=1$
+\subsection{Delelighet}
+Dersom $a,b \in \setZ$, betyr $a \mid b$ at $a$ deler $b$, det vil si at det finnes et tall $k\in \setZ$ slik at $b=k\cdot a$. I motsatt fall sier vi at $a$ ikke deler $b$ og skriver $a\nmid b$.
 \section{Teori brukt i beviset}
 \subsection{Eulers teorem}
 Dersom $\gcd(a,n)$, så gjelder:
 \begin{align}
 	a^{\phi(n)} \equiv 1 \mod n
 \end{align}
+
 \section{Felles faktorer mellom Mersennetall}
 \begin{thm}
 	Største felles devisor mellom to Mersennetall er selv et Mersennetall, nærmere bestemt det Mersennetallet som har indeksen som er største felles divisor til indeksene til de to opprinnelige  Mersennetallene, altså:\[\gcd\left(M_a,M_b\right)=M_{\gcd(a,b)} \]
 \end{thm}
+For å vise dette trenger vi følgende lemma:
+\begin{lemma}
+	For alle $a,b \in \setNp$ så er:
+\[ M_a\mid M_{a\cdot b} \]
+\end{lemma}
+Bevis:
+Opplagt gjelder:
+\begin{align}
+M_a = 2^a-1\equiv 0 \pmod{M_a}
+\end{align}
+Dette kan omformes til:
+\begin{align}
+2^a \equiv 1  \pmod{M_a}
+\end{align}
+og igjen til:
+\begin{align}
+\left(2^a\right)^b\equiv 1^b\equiv 1 \pmod{M_a}
+\end{align}
+Dette er det samme som:
+\begin{align}
+M_{a\cdot b}=2^{a\cdot b}-1\equiv 0 \pmod{M_a}
+\end{align}
+og følgelig:
+ \begin{align}
+ M_a\mid M_{a\cdot b}
+ \end{align}
+som bekrefter lemmaet vårt. \bigskip
 
+
+Videre til hovedresultatet går beviset som følger:
+\begin{proof}
+Vi vet at vi kan skrive:
+\begin{align}
+\gcd(a,b)=t\cdot a+s\cdot b
+\end{align}
+der $t,s \in \setZ$.
+Imidlertid må nøyaktig ett av tallene $s$ og $t$ være positivt og det andre må være null eller negativt. Dersom det ene tallet er null, vil vi da imidlertid ha at 
+\begin{align}
+\gcd(a,b)=k\cdot \min(a,b)
+\end{align}
+, noe som gir:
+\begin{align}
+\gcd(a,b)=\min(a,b)
+\end{align}
+og følgelig
+$\min(a,b)\mid \max(a,b)$. I dette spesialtilfellet sørger lemmaet for at $M_{\min(a,b)}\mid M_{\max(a,b)}$ og følgelig at 
+\[\gcd\left(M_a,M_b\right)=M_{\gcd(a,b)} \]
+
+Dersom ingen av tallene $s$ og $t$ er null, la da $d$ være en felles divisor av $M_a$ og $M_b$. Da vet vi:
+$d\mid M_{|t|\cdot a}$ og $d\mid M_{|s|\cdot b}$ (merk absoluttverditegnene). Av dette har vi at $d\mid \left| M_{|t|\cdot a}-M_{|s|\cdot b}\right|$. Følgelig blir:
+\begin{align}
+\left| M_{|t|\cdot a}-M_{|s|\cdot b}\right|= \left| \left(2^{|t|\cdot a}-1\right)- \left(2^{|s|\cdot b}-1\right)\right|=\left| 2^{|t|\cdot a} -2^{|s|\cdot b}\right| =\\ \left| 2^{\min\left(|t|\cdot a,|s|\cdot b\right)}\cdot\left(2^{\max\left(|t|\cdot a,|s|\cdot b\right)-\min\left(|t|\cdot a,|s|\cdot b\right)}-1\right) \right|= \left| 2^{\min\left(|t|\cdot a,|s|\cdot b\right)}\cdot\left(2^{\left| |t|\cdot a-|s|\cdot b\right|}-1\right) \right|=\\
+\left| 2^{\min\left(|t|\cdot a,|s|\cdot b\right)}\cdot\left(2^{t\cdot a+s\cdot b}-1\right) \right|=2^{\min\left(|t|\cdot a,|s|\cdot b\right)}\cdot M_{t\cdot a+s\cdot b}= \\ 2^{\min\left(|t|\cdot a,|s|\cdot b\right)}\cdot M_{\gcd(a,b)}
+\end{align}
+Altså har vi da at $d \mid 2^{\min\left(|t|\cdot a,|s|\cdot b\right)}\cdot M_{\gcd(a,b)}$, men Mersennetallene er alltid oddetall, så  $\gcd\left(d, 2^{\min\left(|t|\cdot a,|s|\cdot b\right)}\right)=1$, så vi får:
+$d \mid M_{\gcd(a,b)}$. På den annen side har vi av lemmaet at $M_{\gcd(a,b)} \mid M_a$ og $M_{\gcd(a,b)} \mid M_b$. Altså må vi da ha at
+\begin{align}
+\gcd\left(M_a,M_b\right)=M_{\gcd(a,b)}
+\end{align}
+\end{proof}
 
 \end{document}
