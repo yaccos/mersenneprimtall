@@ -61,11 +61,13 @@ Dersom $\gcd(a,n)$, så gjelder:
 	Største felles devisor mellom to Mersennetall er selv et Mersennetall, nærmere bestemt det Mersennetallet som har indeksen som er største felles divisor til indeksene til de to opprinnelige  Mersennetallene, altså:\[\gcd\left(M_a,M_b\right)=M_{\gcd(a,b)} \]
 \end{thm}
 For å vise dette trenger vi følgende lemma:
+
 \begin{lemma}
 	For alle $a,b \in \setNp$ så er:
 \[ M_a\mid M_{a\cdot b} \]
+
 \end{lemma}
-Bevis:
+\begin{proof}
 Opplagt gjelder:
 \begin{align}
 M_a = 2^a-1\equiv 0 \pmod{M_a}
@@ -86,10 +88,10 @@ og følgelig:
  \begin{align}
  M_a\mid M_{a\cdot b}
  \end{align}
-som bekrefter lemmaet vårt. \bigskip
+\end{proof}
 
 
-Videre til hovedresultatet går beviset som følger:
+Videre til hovedresultatet har vi:
 \begin{proof}
 Vi vet at vi kan skrive:
 \begin{align}
